@@ -3,6 +3,7 @@ package com.example.studyappjava;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,6 +36,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         boolean correctOperation = true;
         String operation = "";
         try {
+
+            if(TextUtils.isEmpty(etNum1.getText().toString())|| TextUtils.isEmpty(etOperation.getText().toString())
+            || TextUtils.isEmpty(etNum2.getText().toString())){
+                Toast toast = Toast.makeText(getApplicationContext(), "Вы не ввели данные!", Toast.LENGTH_LONG);
+                toast.setMargin(50,50);
+                toast.show();
+                return;
+            }
 
 
             num1 = Float.parseFloat(etNum1.getText().toString());
